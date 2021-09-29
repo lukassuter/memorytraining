@@ -11,7 +11,7 @@ export const App = () => {
   const [text, setText] = useState("");
 
   const showNextItem = () => {
-    if (currentItem.swedishTranslation.toLowerCase() !== text) {
+    if (currentItem.swedishTranslation.toLowerCase() !== text.toLowerCase()) {
       setErrors(errors + 1);
     }
 
