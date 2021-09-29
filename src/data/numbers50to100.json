@@ -1,0 +1,252 @@
+[
+    {
+        "number": 50,
+        "key": "rum",
+        "swedishTranslation": "RoM"
+    },
+    {
+        "number": 51,
+        "key": "runestone",
+        "swedishTranslation": "RuNsten"
+    },
+    {
+        "number": 52,
+        "key": "foot",
+        "swedishTranslation": "FoT"
+    },
+    {
+        "number": 53,
+        "key": "rhubarb",
+        "swedishTranslation": "RaBarber"
+    },
+    {
+        "number": 54,
+        "key": "rocket",
+        "swedishTranslation": "RaKet"
+    },
+    {
+        "number": 55,
+        "key": "sheep",
+        "swedishTranslation": "FåR"
+    },
+    {
+        "number": 56,
+        "key": "grouse",
+        "swedishTranslation": "RiPa"
+    },
+    {
+        "number": 57,
+        "key": "radio",
+        "swedishTranslation": "RaDio"
+    },
+    {
+        "number": 58,
+        "key": "movie",
+        "swedishTranslation": "FiLm-rulle"
+    },
+    {
+        "number": 59,
+        "key": "racket",
+        "swedishTranslation": "RaCket"
+    },
+    {
+        "number": 60,
+        "key": "puma",
+        "swedishTranslation": "PuMa"
+    },
+    {
+        "number": 61,
+        "key": "jeans",
+        "swedishTranslation": "JeaNs"
+    },
+    {
+        "number": 62,
+        "key": "pizza",
+        "swedishTranslation": "PiZza"
+    },
+    {
+        "number": 63,
+        "key": "workHelmet",
+        "swedishTranslation": "JoBbarhjälm"
+    },
+    {
+        "number": 64,
+        "key": "jukebox",
+        "swedishTranslation": "JuKebox"
+    },
+    {
+        "number": 65,
+        "key": "globe",
+        "swedishTranslation": "JoRdglob"
+    },
+    {
+        "number": 66,
+        "key": "papaya",
+        "swedishTranslation": "PaPaya"
+    },
+    {
+        "number": 67,
+        "key": "gun",
+        "swedishTranslation": "PiStol"
+    },
+    {
+        "number": 68,
+        "key": "palm",
+        "swedishTranslation": "PaLm"
+    },
+    {
+        "number": 69,
+        "key": "juicePackage",
+        "swedishTranslation": "JuiCepaket"
+    },
+    {
+        "number": 70,
+        "key": "dominoGame",
+        "swedishTranslation": "DoMinospel"
+    },
+    {
+        "number": 71,
+        "key": "dinosaur",
+        "swedishTranslation": "DiNosaurie"
+    },
+    {
+        "number": 72,
+        "key": "shorts",
+        "swedishTranslation": "SHorts"
+    },
+    {
+        "number": 73,
+        "key": "dubbTires",
+        "swedishTranslation": "DuBb-däck"
+    },
+    {
+        "number": 74,
+        "key": "diver",
+        "swedishTranslation": "DyKare"
+    },
+    {
+        "number": 75,
+        "key": "dragon",
+        "swedishTranslation": "DRake"
+    },
+    {
+        "number": 76,
+        "key": "spider",
+        "swedishTranslation": "SPindel"
+    },
+    {
+        "number": 77,
+        "key": "box",
+        "swedishTranslation": "DoSa"
+    },
+    {
+        "number": 78,
+        "key": "saw",
+        "swedishTranslation": "SåG"
+    },
+    {
+        "number": 79,
+        "key": "sack",
+        "swedishTranslation": "SäCk"
+    },
+    {
+        "number": 80,
+        "key": "clip",
+        "swedishTranslation": "GeM"
+    },
+    {
+        "number": 81,
+        "key": "mapleLeaves",
+        "swedishTranslation": "LöNnlöv"
+    },
+    {
+        "number": 82,
+        "key": "latte",
+        "swedishTranslation": "LaTte"
+    },
+    {
+        "number": 83,
+        "key": "electricBase",
+        "swedishTranslation": "eLBas"
+    },
+    {
+        "number": 84,
+        "key": "olive",
+        "swedishTranslation": "oLiV"
+    },
+    {
+        "number": 85,
+        "key": "curtain",
+        "swedishTranslation": "GaRdin"
+    },
+    {
+        "number": 86,
+        "key": "leopardToy",
+        "swedishTranslation": "LeoPardmjukisdjur"
+    },
+    {
+        "number": 87,
+        "key": "goose",
+        "swedishTranslation": "GåS"
+    },
+    {
+        "number": 88,
+        "key": "hanger",
+        "swedishTranslation": "GaLge"
+    },
+    {
+        "number": 89,
+        "key": "curlingIron",
+        "swedishTranslation": "LoCktång"
+    },
+    {
+        "number": 90,
+        "key": "cymbal",
+        "swedishTranslation": "CyMbal"
+    },
+    {
+        "number": 91,
+        "key": "container",
+        "swedishTranslation": "CoNtainer"
+    },
+    {
+        "number": 92,
+        "key": "citronSlice",
+        "swedishTranslation": "CiTronskiva"
+    },
+    {
+        "number": 93,
+        "key": "convertible",
+        "swedishTranslation": "CaBriolet"
+    },
+    {
+        "number": 94,
+        "key": "cyclops",
+        "swedishTranslation": "CyKlopöga"
+    },
+    {
+        "number": 95,
+        "key": "cerate",
+        "swedishTranslation": "CeRat"
+    },
+    {
+        "number": 96,
+        "key": "capo",
+        "swedishTranslation": "CaPo"
+    },
+    {
+        "number": 97,
+        "key": "cd",
+        "swedishTranslation": "CD-skiva"
+    },
+    {
+        "number": 98,
+        "key": "cylinder",
+        "swedishTranslation": "CyLinder"
+    },
+    {
+        "number": 99,
+        "key": "cocktail",
+        "swedishTranslation": "CoCktail"
+    }
+]
