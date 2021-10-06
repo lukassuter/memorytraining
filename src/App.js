@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import numbers from "./data/numbers1to49.json";
+import numbers from "./data/numbers50to100.json";
 const items = numbers.sort((a, b) => 0.5 - Math.random());
 
 export const App = () => {
