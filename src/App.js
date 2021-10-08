@@ -1,17 +1,28 @@
 import { useState, useEffect } from "react";
 import "./App.css";
 import numbers from "./data/numbers50to100.json";
-const items = numbers.sort((a, b) => 0.5 - Math.random());
+const itemStart = 0;
+const itemStop = 50;
+const items = numbers
+  .slice(itemStart, itemStop)
+  .sort((a, b) => 0.5 - Math.random());
 
 export const App = () => {
   const [index, setIndex] = useState(0);
   const [showText, setShowText] = useState(false);
   const [currentItem, setCurrentItem] = useState(items[index]);
   const [errors, setErrors] = useState(0);
+  const [acceptedAnswers, setAcceptedAnswers] = useState(0);
   const [text, setText] = useState("");
 
   const showNextItem = () => {
-    if (currentItem.swedishTranslation.toLowerCase() !== text.toLowerCase()) {
+    if (!showText) {
+      setShowText(true);
+      return;
+    }
+    if (currentItem.swedishTranslation.toLowerCase() === text.toLowerCase()) {
+      setAcceptedAnswers(acceptedAnswers + 1);
+    } else {
       setErrors(errors + 1);
     }
 
@@ -37,6 +48,7 @@ export const App = () => {
   }, [index]);
 
   const lastImage = index >= items.length;
+  const displayText = `Errors ${errors}, Accepted answers ${acceptedAnswers}`;
 
   return (
     <div className="container">
@@ -44,7 +56,7 @@ export const App = () => {
         {lastImage ? (
           <div className="content">
             <div className="mainContent">
-              <div className="largeText">Errors {errors}</div>
+              <div className="largeText">{displayText}</div>
             </div>
           </div>
         ) : (
@@ -65,7 +77,7 @@ export const App = () => {
                 onChange={(event) => setText(event.target.value)}
               ></input>
               <div className="smallText">
-                {index + 1} of {items.length} (Errors: {errors})
+                {index + 1} of {items.length} ({displayText})
               </div>
             </div>
             <div className="buttonGroup">
