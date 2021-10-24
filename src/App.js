@@ -1,19 +1,24 @@
 import { useState, useEffect } from "react";
 import "./App.css";
-import numbers from "./data/numbers50to100.json";
-const itemStart = 0;
-const itemStop = 50;
+import numbers from "./data/numbers.json";
+const startIndex = 20;
+const numberOfItems = 10;
 const items = numbers
-  .slice(itemStart, itemStop)
-  .sort((a, b) => 0.5 - Math.random());
+  .slice(startIndex, startIndex + numberOfItems)
+  .sort(() => 0.5 - Math.random());
 
 export const App = () => {
   const [index, setIndex] = useState(0);
   const [showText, setShowText] = useState(false);
   const [currentItem, setCurrentItem] = useState(items[index]);
-  const [errors, setErrors] = useState(0);
-  const [acceptedAnswers, setAcceptedAnswers] = useState(0);
+  const [errors, setErrors] = useState([]);
+  const [acceptedAnswers, setAcceptedAnswers] = useState([]);
   const [text, setText] = useState("");
+  const startTime = Date.now();
+  const [elapsedTime, setElapsedTime] = useState();
+
+  const lastImage = index >= items.length;
+  const displayText = `Errors ${errors.length}, Accepted answers ${acceptedAnswers.length}`;
 
   const showNextItem = () => {
     if (!showText) {
@@ -21,14 +26,20 @@ export const App = () => {
       return;
     }
     if (currentItem.swedishTranslation.toLowerCase() === text.toLowerCase()) {
-      setAcceptedAnswers(acceptedAnswers + 1);
+      setAcceptedAnswers([...acceptedAnswers, currentItem]);
     } else {
-      setErrors(errors + 1);
+      setErrors([...errors, currentItem]);
     }
 
     setText("");
     setShowText(false);
     setIndex(index + 1);
+
+    const lastImage = index >= items.length - 1;
+    if (lastImage) {
+      const secondsSinceStart = (Date.now() - startTime) / 1000;
+      setElapsedTime(`${secondsSinceStart} seconds`);
+    }
   };
 
   const showTextButtonPress = () => {
@@ -47,9 +58,6 @@ export const App = () => {
     }
   }, [index]);
 
-  const lastImage = index >= items.length;
-  const displayText = `Errors ${errors}, Accepted answers ${acceptedAnswers}`;
-
   return (
     <div className="container">
       <div className="topLevel">
@@ -57,6 +65,25 @@ export const App = () => {
           <div className="content">
             <div className="mainContent">
               <div className="largeText">{displayText}</div>
+              <div>
+                <div>Total time: {elapsedTime}</div>
+                <br />
+                <div>Errors</div>
+                {errors.map((error) => (
+                  <div className="error-items">
+                    {error.number} - {error.swedishTranslation}
+                  </div>
+                ))}
+                <br />
+                <div>Correct</div>
+                {acceptedAnswers.map((acceptedAnswer) => (
+                  <div className="error-items">
+                    {acceptedAnswer.number} -{" "}
+                    {acceptedAnswer.swedishTranslation}
+                  </div>
+                ))}
+                <br />
+              </div>
             </div>
           </div>
         ) : (
@@ -71,6 +98,7 @@ export const App = () => {
                 )}
               </div>
               <input
+                autoFocus={true}
                 type="text"
                 value={text}
                 onKeyPress={(event) => handleKeyPress(event)}
