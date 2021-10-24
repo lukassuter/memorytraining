@@ -11,15 +11,13 @@ export const App = () => {
   const [text, setText] = useState("");
   const [startTime, setStartTime] = useState(Date.now());
   const [elapsedTime, setElapsedTime] = useState();
-  const [startIndex, setStartIndex] = useState();
-  const [numberOfItems, setNumberOfItems] = useState();
+  const [startIndex, setStartIndex] = useState(0);
+  const [numberOfItems, setNumberOfItems] = useState(10);
   const [shownNumbers, setShownNumbers] = useState([]);
 
   useEffect(() => {
-    setStartIndex(0);
-    setIndex(0);
-    setNumberOfItems(10);
-  }, []);
+    restart();
+  }, [numberOfItems, startIndex]);
 
   useEffect(() => {
     if (
@@ -80,12 +78,16 @@ export const App = () => {
   };
 
   const restart = () => {
-    setIndex(0);
     setShowText(false);
     setErrors([]);
     setAcceptedAnswers([]);
     setText("");
     setStartTime(Date.now());
+  };
+
+  const restartResetIndex = () => {
+    setIndex(0);
+    restart();
   };
 
   return (
@@ -120,53 +122,64 @@ export const App = () => {
           <>
             <div className="content">
               <div className="mainContent">
-                <div className="largeText">{currentItem.number}</div>
-                {showText && (
-                  <div className="largeText">
-                    {currentItem.swedishTranslation}
-                  </div>
-                )}
+                <div className="largeText">
+                  {showText
+                    ? `${currentItem.number} - ${currentItem.swedishTranslation}`
+                    : currentItem.number}
+                </div>
+              </div>
+              <div className="smallText">
+                {index + 1} of {shownNumbers.length} ({displayText})
               </div>
               <input
+                className="main-input"
                 autoFocus={true}
                 type="text"
                 value={text}
                 onKeyPress={(event) => handleKeyPress(event)}
                 onChange={(event) => setText(event.target.value)}
               ></input>
-              <div className="smallText">
-                {index + 1} of {shownNumbers.length} ({displayText})
+              <div className="buttonGroup">
+                <button
+                  className="largeButton"
+                  onClick={() => showTextButtonPress()}
+                >
+                  I forgot
+                </button>
+                <button
+                  className="largeButton"
+                  onClick={() => restartResetIndex()}
+                >
+                  Restart
+                </button>
+                <button className="largeButton" onClick={() => showNextItem()}>
+                  Next
+                </button>
               </div>
-            </div>
-            <div className="buttonGroup">
-              <button className="primaryButton" onClick={() => showNextItem()}>
-                Next
-              </button>
-              <button
-                className="secondaryButton"
-                onClick={() => showTextButtonPress()}
-              >
-                I forgot
-              </button>
-              <div>Start index</div>
-              <input
-                type="number"
-                value={startIndex}
-                onChange={(event) =>
-                  setStartIndex(parseInt(event.target.value))
-                }
-              ></input>
-              <div>Number of items</div>
-              <input
-                type="number"
-                value={numberOfItems}
-                onChange={(event) =>
-                  setNumberOfItems(parseInt(event.target.value))
-                }
-              ></input>
-              <button className="secondaryButton" onClick={() => restart()}>
-                Restart
-              </button>
+              <div className="input-group">
+                <div className="input-item-group">
+                  <div>Start index</div>
+                  <input
+                    className="secondary-input"
+                    type="number"
+                    value={startIndex}
+                    onChange={(event) =>
+                      setStartIndex(parseInt(event.target.value))
+                    }
+                  ></input>
+                </div>
+                <div className="input-item-group">
+                  <div>Number of items</div>
+                  <input
+                    className="secondary-input"
+                    type="number"
+                    value={numberOfItems}
+                    onChange={(event) =>
+                      setNumberOfItems(parseInt(event.target.value))
+                    }
+                  ></input>
+                </div>
+              </div>
             </div>
           </>
         )}
