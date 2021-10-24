@@ -9,7 +9,7 @@ export const App = () => {
   const [errors, setErrors] = useState([]);
   const [acceptedAnswers, setAcceptedAnswers] = useState([]);
   const [text, setText] = useState("");
-  const startTime = Date.now();
+  const [startTime, setStartTime] = useState(Date.now());
   const [elapsedTime, setElapsedTime] = useState();
   const [startIndex, setStartIndex] = useState();
   const [numberOfItems, setNumberOfItems] = useState();
@@ -17,11 +17,18 @@ export const App = () => {
 
   useEffect(() => {
     setStartIndex(0);
+    setIndex(0);
     setNumberOfItems(10);
   }, []);
 
   useEffect(() => {
-    if (startIndex < 0 || numberOfItems + startIndex > 100) {
+    if (
+      startIndex < 0 ||
+      numberOfItems < 1 ||
+      numberOfItems + startIndex > 100 ||
+      isNaN(startIndex) ||
+      isNaN(numberOfItems)
+    ) {
       return;
     }
     const items = numbers
@@ -31,7 +38,7 @@ export const App = () => {
   }, [numberOfItems, startIndex]);
 
   useEffect(() => {
-    if (!shownNumbers <= 0) {
+    if (shownNumbers.length === 0) {
       return;
     }
     setCurrentItem(shownNumbers[index]);
@@ -72,11 +79,14 @@ export const App = () => {
     }
   };
 
-  useEffect(() => {
-    if (index < shownNumbers.length) {
-      setCurrentItem(shownNumbers[index]);
-    }
-  }, [index, shownNumbers]);
+  const restart = () => {
+    setIndex(0);
+    setShowText(false);
+    setErrors([]);
+    setAcceptedAnswers([]);
+    setText("");
+    setStartTime(Date.now());
+  };
 
   return (
     <div className="container">
@@ -154,6 +164,9 @@ export const App = () => {
                   setNumberOfItems(parseInt(event.target.value))
                 }
               ></input>
+              <button className="secondaryButton" onClick={() => restart()}>
+                Restart
+              </button>
             </div>
           </>
         )}
